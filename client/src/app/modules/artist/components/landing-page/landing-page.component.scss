@@ -1,0 +1,50 @@
+.artist-land {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+
+  &__pic {
+    transform: translateY(calc(var(--space-xl) * -1));
+    .img {
+      width: 100%;
+      aspect-ratio: 5 / 2;
+      min-height: 30rem;
+      object-fit: cover;
+      opacity: 0.5;
+      animation-name: story;
+      animation-duration: 3s;
+    }
+  }
+
+  &__story {
+    position: absolute;
+    left: min(5rem, 5vw);
+    bottom: 0rem;
+    transform: translateY(-4rem);
+    z-index: 2;
+  }
+
+  .gradient-bg {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+      1turn,
+      var(--main-bg) 8.98%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    height: 15rem;
+    z-index: 1;
+  }
+}
+
+@keyframes story {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
+}

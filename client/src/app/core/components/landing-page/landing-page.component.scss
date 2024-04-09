@@ -1,0 +1,36 @@
+@import "../../../styles//media";
+
+.landing-page {
+  display: flex;
+  background: var(--main-bg);
+  color: var(--main-text-color);
+
+  &__sidebar {
+    height: 100dvh;
+    position: sticky;
+    top: 0;
+    border-right: var(--main-border);
+    box-sizing: border-box;
+    width: clamp(20px, 250px, 250px);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .navbar {
+      height: var(--space-xl);
+      position: sticky;
+      box-sizing: border-box;
+      top: 0;
+      z-index: 3;
+    }
+  }
+
+  @include md() {
+    &__sidebar {
+      display: none;
+    }
+  }
+}

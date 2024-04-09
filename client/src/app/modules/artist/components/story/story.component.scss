@@ -1,0 +1,31 @@
+.story {
+  width: clamp(20rem, 100%, 30rem);
+  animation-name: story;
+  animation-duration: 500ms;
+
+  h1 {
+    font-size: calc(var(--space-m) * 3);
+  }
+
+  p {
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+  }
+
+  &__btn {
+    display: flex;
+    gap: var(--space-m);
+    max-width: 25rem;
+  }
+}
+
+@keyframes story {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

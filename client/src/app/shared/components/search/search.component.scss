@@ -1,0 +1,29 @@
+.search {
+  display: flex;
+  width: clamp(10rem, 50vw, 480px);
+  height: calc(var(--space-l) + var(--space-xsm));
+  background: var(--main-input-bg);
+  border-radius: var(--space-xsm);
+  border: var(--main-border);
+  position: relative;
+
+  &__input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--main-text);
+    outline: none;
+    padding: 0 calc(var(--space-l) + 0.2rem);
+
+    &::placeholder {
+      color: var(--main-placeholder-color);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: var(--space-xsm);
+    left: var(--space-xsm);
+    pointer-events: none;
+  }
+}

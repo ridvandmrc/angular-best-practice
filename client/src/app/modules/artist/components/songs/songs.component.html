@@ -1,0 +1,11 @@
+<section class="songs">
+  <h3>Songs</h3>
+  <div class="song-list" *ngFor="let song of songList">
+    <figure>
+      <img [src]="song.img" />
+    </figure>
+    <p class="song-list__song-name">{{ song.songName }}</p>
+    <p class="song-list__artist-name">{{ song.artistName }}</p>
+    <p class="song-list__stream">{{ song.stream }}</p>
+  </div>
+</section>
