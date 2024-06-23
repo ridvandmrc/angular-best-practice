@@ -1,9 +1,12 @@
 import express, { Router } from "express";
 
+import cors from "cors";
+
+import { artistRouter } from "./modules";
+
 const app = express();
-app.get("/artist", (req, res) => {
-  res.send("helloo");
-});
+
+app.use("/artist", artistRouter);
 
 app.listen(5555, () => {
   console.log("listenning");
