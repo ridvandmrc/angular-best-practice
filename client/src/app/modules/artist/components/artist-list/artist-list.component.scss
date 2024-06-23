@@ -1,0 +1,68 @@
+.artists {
+  padding: 3rem 4rem;
+
+  &__header {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow: hidden;
+    gap: 2rem;
+
+    .artist-indicator {
+      position: absolute;
+      inset: 0;
+      background: rgba($color: #000000, $alpha: 0.5);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 300ms;
+      overflow: hidden;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    &:has(.active) {
+      & > :not(.active) {
+        opacity: 0;
+      }
+
+      & > .active {
+      }
+    }
+
+    img {
+      max-width: 300px;
+      min-width: 200px;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      cursor: pointer;
+      transition: transform 300ms;
+      transform-origin: center;
+    }
+
+    .galery {
+      position: relative;
+      box-sizing: border-box;
+      width: fit-content;
+      overflow: hidden;
+      transition: opacity 400ms;
+
+      &:hover {
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}

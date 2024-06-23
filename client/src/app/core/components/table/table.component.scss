@@ -1,0 +1,22 @@
+.table {
+  align-items: center;
+  margin-top: var(--space-xsm);
+  width: 100%;
+  border-collapse: collapse;
+
+  td,
+  th {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: var(--space-m);
+    border-bottom: 1px solid var(--main-input-bg);
+    height: 3rem;
+    text-align: left;
+  }
+}
+
+.table-title {
+  font-size: 1.7rem;
+  margin: 0 var(--space-m);
+}

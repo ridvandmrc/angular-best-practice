@@ -1,0 +1,15 @@
+<section class="artists">
+  <h1 class="artists__header">Artist List</h1>
+  <div class="artists__list">
+    <div
+      *ngFor="let img of artists; index as i"
+      (click)="imgClick(img.artistKey)"
+      class="galery"
+      [id]="img.artistKey"
+      [style]="{ transition: 'opacity ' + (i + 1) * 200 + 'ms' }"
+    >
+      <img [src]="img.artistImg" />
+      <div class="artist-indicator">{{ img.artistName }}</div>
+    </div>
+  </div>
+</section>
