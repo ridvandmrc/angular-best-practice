@@ -9,26 +9,6 @@
     font-size: var(--space-l);
   }
 
-  .song-list {
-    display: grid;
-    grid-template-columns: 1fr 4fr 3fr 2fr;
-    border-bottom: 1px solid var(--main-input-bg);
-    align-items: center;
-    margin-top: var(--space-xsm);
-
-    img {
-      margin-left: var(--space-xsm);
-      width: var(--space-l);
-    }
-
-    p {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      padding-right: var(--space-m);
-    }
-  }
-
   @include md() {
     margin-left: max(10vw, 0.5rem);
     margin-right: max(10vw, 0.5rem);

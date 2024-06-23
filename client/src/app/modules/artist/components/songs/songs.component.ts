@@ -1,65 +1,44 @@
-import { Component } from '@angular/core';
+import {
+  Component,
+  Input,
+  TemplateRef,
+  ViewChild,
+  OnInit,
+} from "@angular/core";
+import { Song } from "../../models";
+import { Cols, Rows } from "src/app/core/models";
+
+import { LegendComponent } from "src/app/core/components";
+
+type SongType = "img" | "song" | "name" | "stream";
 
 @Component({
-  selector: 'app-songs',
-  templateUrl: './songs.component.html',
-  styleUrls: ['./songs.component.scss'],
+  selector: "app-songs",
+  templateUrl: "./songs.component.html",
+  styleUrls: ["./songs.component.scss"],
 })
-export class SongsComponent {
-  songList = [
-    {
-      img: 'https://lh3.googleusercontent.com/9Oe4acEXgmAlCKgcgI6JlSXi2Tj30u6anzvfGBrunGO-fLhBTgzy-ei1ugPJpZDD5ArKFod9H4RTA5g0=w60-h60-l90-rj',
-      artistName: 'Drake',
-      songName: "God's plan",
-      stream: '2B Plays',
-    },
-    {
-      img: 'https://lh3.googleusercontent.com/9Oe4acEXgmAlCKgcgI6JlSXi2Tj30u6anzvfGBrunGO-fLhBTgzy-ei1ugPJpZDD5ArKFod9H4RTA5g0=w60-h60-l90-rj',
-      artistName: 'Drake',
-      songName: 'First Person Shooter (feat. J. Cole)',
-      stream: '2B Plays',
-    },
-    {
-      img: 'https://lh3.googleusercontent.com/9Oe4acEXgmAlCKgcgI6JlSXi2Tj30u6anzvfGBrunGO-fLhBTgzy-ei1ugPJpZDD5ArKFod9H4RTA5g0=w60-h60-l90-rj',
-      artistName: 'Drake',
-      songName: 'Rich Baby Daddy (feat. Sexyy Red & SZA)',
-      stream: '2B Plays',
-    },
-    {
-      img: 'https://lh3.googleusercontent.com/9Oe4acEXgmAlCKgcgI6JlSXi2Tj30u6anzvfGBrunGO-fLhBTgzy-ei1ugPJpZDD5ArKFod9H4RTA5g0=w60-h60-l90-rj',
-      artistName: 'Drake',
-      songName: 'Hotline Bling',
-      stream: '2B Plays',
-    },
-    {
-      img: 'https://lh3.googleusercontent.com/9Oe4acEXgmAlCKgcgI6JlSXi2Tj30u6anzvfGBrunGO-fLhBTgzy-ei1ugPJpZDD5ArKFod9H4RTA5g0=w60-h60-l90-rj',
-      artistName: 'Drake',
-      songName: 'Passionfruit',
-      stream: '2B Plays',
-    },
-    {
-      img: 'https://lh3.googleusercontent.com/9Oe4acEXgmAlCKgcgI6JlSXi2Tj30u6anzvfGBrunGO-fLhBTgzy-ei1ugPJpZDD5ArKFod9H4RTA5g0=w60-h60-l90-rj',
-      artistName: 'Drake',
-      songName: 'Passionfruit',
-      stream: '2B Plays',
-    },
-    {
-      img: 'https://lh3.googleusercontent.com/9Oe4acEXgmAlCKgcgI6JlSXi2Tj30u6anzvfGBrunGO-fLhBTgzy-ei1ugPJpZDD5ArKFod9H4RTA5g0=w60-h60-l90-rj',
-      artistName: 'Drake',
-      songName: 'Passionfruit',
-      stream: '2B Plays',
-    },
-    {
-      img: 'https://lh3.googleusercontent.com/9Oe4acEXgmAlCKgcgI6JlSXi2Tj30u6anzvfGBrunGO-fLhBTgzy-ei1ugPJpZDD5ArKFod9H4RTA5g0=w60-h60-l90-rj',
-      artistName: 'Drake',
-      songName: 'Passionfruit',
-      stream: '2B Plays',
-    },
-    {
-      img: 'https://lh3.googleusercontent.com/9Oe4acEXgmAlCKgcgI6JlSXi2Tj30u6anzvfGBrunGO-fLhBTgzy-ei1ugPJpZDD5ArKFod9H4RTA5g0=w60-h60-l90-rj',
-      artistName: 'Drake',
-      songName: 'Passionfruit',
-      stream: '2B Plays',
-    },
+export class SongsComponent implements OnInit {
+  @Input() songList: Song[] = [];
+  @ViewChild("artistImage") artistImage!: TemplateRef<HTMLElement>;
+  @ViewChild("legendSuccess") legendSuccess!: TemplateRef<HTMLElement>;
+  @ViewChild("legendError") legendError!: TemplateRef<HTMLElement>;
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.rows = this.songList.map(({ artist, songName, stream }) => ({
+        img: { render: this.artistImage },
+        name: { value: artist },
+        song: { value: songName },
+        stream: { value: stream },
+      }));
+    }, 50);
+  }
+
+  cols: Cols<SongType>[] = [
+    { key: "img", label: "Image" },
+    { key: "song", label: "Song" },
+    { key: "name", label: "Name" },
+    { key: "stream", label: "Stream" },
   ];
+  rows: Rows<SongType>[] = [];
 }

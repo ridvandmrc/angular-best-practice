@@ -1,11 +1,10 @@
 <section class="songs">
-  <h3>Songs</h3>
-  <div class="song-list" *ngFor="let song of songList">
-    <figure>
-      <img [src]="song.img" />
-    </figure>
-    <p class="song-list__song-name">{{ song.songName }}</p>
-    <p class="song-list__artist-name">{{ song.artistName }}</p>
-    <p class="song-list__stream">{{ song.stream }}</p>
-  </div>
+  <app-table title="Songs" [cols]="cols" [rows]="rows" [showHeader]="false" />
 </section>
+
+<ng-template #artistImage>
+  <img
+    style="margin-left: var(--space-xsm); width: var(--space-l)"
+    src="https://lh3.googleusercontent.com/9Oe4acEXgmAlCKgcgI6JlSXi2Tj30u6anzvfGBrunGO-fLhBTgzy-ei1ugPJpZDD5ArKFod9H4RTA5g0=w60-h60-l90-rj"
+  />
+</ng-template>
